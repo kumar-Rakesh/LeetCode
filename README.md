@@ -1,2 +1,5 @@
-# LeetCode
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub).
+# Leetcode
+
+| # | Title | Solution | Runtime |
+|---| ----- | -------- | ------- |
+|1|[ Two Sum](https://leetcode.com/problems/two-sum/)|[C++](./solutions/1.%20Two%20Sum.cpp)|11 ms|
