@@ -2,6 +2,7 @@ class Solution {
     
     private boolean[][] vis;
     private int m, n;
+    private int[][] step;
     
     private void fill(boolean[][] vis, boolean val){
         for(int i=0;i<m;++i){
@@ -18,14 +19,9 @@ class Solution {
         if(index==word.length()) return true;
         if(!isValid(i, j) || vis[i][j] || word.charAt(index)!=board[i][j]) return false;
         vis[i][j]=true;
-        boolean up=existUtil(board, word, i-1, j, index+1);
-        if(up) return true;
-        boolean down=existUtil(board, word, i+1, j, index+1);
-        if(down) return true;
-        boolean left=existUtil(board, word, i, j-1, index+1);
-        if(left) return true;
-        boolean right=existUtil(board, word, i, j+1, index+1);
-        if(right) return true;
+        for(int k=0;k<step.length;++k){
+            if(existUtil(board, word, i+step[k][0], j+step[k][1], index+1)) return true;
+        }
         vis[i][j]=false;
         return false;
     }
@@ -35,6 +31,7 @@ class Solution {
         n=board[0].length;
         vis=new boolean[m][n];
         fill(vis, false);
+        step=new int[][]{{-1,0},{1,0},{0,-1},{0,1}};
         for(int i=0;i<m;++i){
             for(int j=0;j<n;++j){
                 if(existUtil(board, word, i, j, 0)) return true;        
