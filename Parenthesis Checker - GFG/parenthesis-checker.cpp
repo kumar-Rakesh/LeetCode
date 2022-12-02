@@ -19,8 +19,7 @@ class Solution
         char getOpenBrace(char c){
             if(c==']') return '[';
             else if(c=='}') return '{';
-            else if(c==')') return '(';
-            return '#';
+            return '(';
         }
     
     public:
